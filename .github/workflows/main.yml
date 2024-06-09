@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+,
+=======
 
 name: Worlflow Evento
 on:
@@ -13,3 +16,5 @@ jobs:
         steps:
             - name: Action de teste
               run: echo ${{ inputs.exemplo-input }}
+
+>>>>>>> 070a7b5fb0ea413827f7673ddc596cf7a35cd827
