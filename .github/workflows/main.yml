@@ -7,4 +7,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Action de teste
-              run: echo "Action executad apenas nas branches: feature/*"
+              run: | 
+                echo "Action executad apenas nas branches: feature"
