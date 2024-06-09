@@ -9,7 +9,7 @@ on:
           required: true
 jobs:
     teste:
-        runs-on: ubuntu-lastest
+        runs-on: ubuntu-latest
         steps:
             - name: Action de teste
               run: echo ${{ inputs.exemplo-input }}
