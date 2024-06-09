@@ -1,1 +1,10 @@
 
+name: Worlflow Evento
+on:
+    workflow_dispatch:
+jobs:
+    teste:
+        runs-on: ubuntu-lastest
+        steps:
+            - name: Action de teste
+              run: echo "Evento disparado"
