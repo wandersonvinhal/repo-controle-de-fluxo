@@ -1,8 +1,7 @@
 name: Worlflow Evento
 on:
-  push:
-    tags:
-      - v*
+  pull_request:
+    branches: ["main"]
 jobs:
     teste:
         runs-on: ubuntu-latest
