@@ -8,6 +8,16 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
+- stage: CI
+  displayName: "CI"
+  jobs:
+  - job: DeployJob
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - script: docker
+      displayName: 'Run a one-line script'
+    
 - stage: CD
   displayName: "CD"
   jobs:
