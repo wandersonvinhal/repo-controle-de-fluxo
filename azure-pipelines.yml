@@ -1,9 +1,3 @@
-# Starter pipeline
-
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
@@ -13,11 +7,19 @@ variables:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: docker
-  displayName: 'Run a one-line script'
+stages:
+- stage: CD
+  displayName: "CD"
+  jobs:
+  - job: DeployJob
+    displayName: "Deployment Job"
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - script: docker
+      displayName: 'Run a one-line script'
 
-- script: |
-    echo "Usando a variável MY_VAR do grupo de variáveis"
-    echo $(TESTE_VAR)
-  displayName: 'Run a multi-line script'
+    - script: |
+        echo "Usando a variável TESTE_VAR do grupo de variáveis"
+        echo $(TESTE_VAR)
+      displayName: 'Run a multi-line script'
