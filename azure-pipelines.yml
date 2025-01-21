@@ -7,6 +7,9 @@
 trigger:
 - main
 
+variables:
+- group: TESTE
+
 pool:
   vmImage: ubuntu-latest
 
@@ -15,6 +18,6 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+    echo "Usando a variável MY_VAR do grupo de variáveis"
+    echo $(TESTE_VAR)
   displayName: 'Run a multi-line script'
