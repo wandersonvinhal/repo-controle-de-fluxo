@@ -1,50 +1,31 @@
-name: Pipeline com Aprovações
+name: Pipeline com Aprovação Manual
 
 on:
   workflow_dispatch:
 
 jobs:
-  stage1:
+  etapa1:
     name: Etapa 1 - Início
     runs-on: ubuntu-latest
+    environment: etapa-1-aprovacao
     steps:
-      - name: Exibir mensagem
-        run: echo "Executando a Etapa 1"
+      - name: Executando Etapa 1
+        run: echo "Etapa 1 concluída"
 
-  approval1:
-    name: Aprovação para Etapa 2
-    needs: stage1
-    runs-on: ubuntu-latest
-    environment:
-      name: aprovacao-etapa-2
-      url: https://github.com
-    steps:
-      - name: Aguardando aprovação para Etapa 2
-        run: echo "Aguardando aprovação manual..."
-
-  stage2:
+  etapa2:
     name: Etapa 2 - Processamento
-    needs: approval1
     runs-on: ubuntu-latest
+    needs: etapa1
+    environment: etapa-2-aprovacao
     steps:
-      - name: Exibir mensagem
-        run: echo "Executando a Etapa 2"
+      - name: Executando Etapa 2
+        run: echo "Etapa 2 concluída"
 
-  approval2:
-    name: Aprovação para Etapa 3
-    needs: stage2
-    runs-on: ubuntu-latest
-    environment:
-      name: aprovacao-etapa-3
-      url: https://github.com
-    steps:
-      - name: Aguardando aprovação para Etapa 3
-        run: echo "Aguardando aprovação manual..."
-
-  stage3:
+  etapa3:
     name: Etapa 3 - Finalização
-    needs: approval2
     runs-on: ubuntu-latest
+    needs: etapa2
+    environment: etapa-3-aprovacao
     steps:
-      - name: Exibir mensagem
-        run: echo "Executando a Etapa 3"
+      - name: Executando Etapa 3
+        run: echo "Etapa 3 concluída"
